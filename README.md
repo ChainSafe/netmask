@@ -14,7 +14,7 @@ import {cidrContains, networkMaskContains} from "@chainsafe/netmask"
 
 cidrContains("192.168.0.1/24", "192.168.0.16")
 cidrContains("2001:db8::/128", "2001:db8::")
-networkMaskContains("192.168.0.1/24", "255.255.255.0", "192.168.0.16")
+networkMaskContains("192.168.0.1", "255.255.255.0", "192.168.0.16")
 ```
 
 ## Quick start
