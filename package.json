@@ -1,6 +1,7 @@
 {
   "name": "@chainsafe/netmask",
   "version": "1.0.0",
+  "description": "Zero dependency typescript implementation for using netmasks with both ipv4 and ipv6",
   "main": "dist/src/index.js",
   "type": "module",
   "author": "marin@chainsafe.io",

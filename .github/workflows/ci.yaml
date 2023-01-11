@@ -1,0 +1,26 @@
+name: 'ci / test'
+on:
+  push:
+    branches:
+      - main # runs on push to master, add more branches if you use them
+  pull_request:
+    branches:
+      - '**' # runs on update to pull request on any branch
+jobs:
+  test-matrix:
+    name: test
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [windows-latest, ubuntu-latest, macos-latest]
+        node: [16, 18]
+      fail-fast: true
+    steps:
+    - uses: actions/checkout@v3
+    - uses: actions/setup-node@v3
+      with:
+        cache: 'yarn'
+        node-version: ${{ matrix.node }}
+    - run: yarn run lint
+    - run: yarn run build
+    - run: yarn run test
