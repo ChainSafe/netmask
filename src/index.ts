@@ -5,7 +5,7 @@ export {
   maskIp,
   iPv4FromIPv6,
   isIPv4mappedIPv6,
-  containsIp
+  containsIp,
 } from "./ip.js";
 export type { IPv4, IPv6 } from "./ip.js";
 export type { IPNet, Mask } from "./cidr.js";
