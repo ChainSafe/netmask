@@ -1,5 +1,8 @@
 
-Zero dependency typescript implementation for using netmasks with both ipv4 and ipv6
+# @chainsafe/netmask
+
+Zero dependency typescript implementation for using netmasks with both ipv4 and ipv6.
+Heavily inspired by go implementation.
 
 ## Features
 
@@ -8,6 +11,13 @@ Zero dependency typescript implementation for using netmasks with both ipv4 and 
 * [Typescript](https://www.typescriptlang.org/) support
 
 ## How to use
+
+`npm i -s @chainsafe/netmask`
+
+or
+`yarn add @chainsafe/netmask`
+
+Example usage:
 
 ```typescript
 import {cidrContains, networkMaskContains} from "@chainsafe/netmask"
@@ -21,4 +31,4 @@ networkMaskContains("192.168.0.1", "255.255.255.0", "192.168.0.16")
 
 1. `yarn`
 2. `yarn run build`
-2. `yarn run test`
+3. `yarn run test`
