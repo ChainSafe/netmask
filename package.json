@@ -1,6 +1,6 @@
 {
   "name": "@chainsafe/netmask",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "Typescript implementation of netmask filtering",
   "main": "dist/src/index.js",
   "type": "module",
