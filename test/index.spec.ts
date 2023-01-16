@@ -1,4 +1,4 @@
-import { expect } from "chai";
+import { expect } from "@esm-bundle/chai";
 import { cidrContains } from "../src/index.js";
 
 describe("exported methods", function () {

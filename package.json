@@ -9,17 +9,22 @@
   "scripts": {
     "lint": "eslint src/ test/",
     "build": "tsc",
-    "test": "cross-env NODE_OPTIONS=\"--loader ts-node/esm\" mocha --extension ts test/**/*.spec.ts"
+    "test": "yarn run test:node",
+    "test:node": "cross-env NODE_OPTIONS=\"--loader ts-node/esm\" mocha --extension ts test/**/*.spec.ts",
+    "test:chrome": "web-test-runner test/**/*.spec.ts --node-resolve --playwright",
+    "test:firefox": "yarn run test:browser --browsers firefox"
   },
   "dependencies": {
     "@chainsafe/is-ip": "^2.0.1"
   },
   "devDependencies": {
     "@chainsafe/eslint-config": "^1.1.0",
+    "@esm-bundle/chai": "^4.3.4-fix.0",
     "@rushstack/eslint-patch": "^1.2.0",
-    "@types/chai": "^4.3.4",
     "@types/mocha": "^10.0.1",
-    "chai": "^4.3.7",
+    "@web/dev-server-esbuild": "^0.3.3",
+    "@web/test-runner": "^0.15.0",
+    "@web/test-runner-playwright": "^0.9.0",
     "cross-env": "^7.0.3",
     "eslint": "^8.31.0",
     "mocha": "^10.2.0",

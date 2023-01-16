@@ -24,4 +24,6 @@ jobs:
     - run: yarn install
     - run: yarn run lint
     - run: yarn run build
-    - run: yarn run test
+    - run: yarn run test:node
+    - run: yarn run test:chrome
+    - run: yarn run test:firefox
