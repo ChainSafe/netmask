@@ -1,5 +1,5 @@
 import { parseIPv4, parseIPv6 } from "@chainsafe/is-ip/parse";
-import { expect } from "chai";
+import { expect } from "@esm-bundle/chai";
 import { cidrMask, parseCidr } from "../src/cidr.js";
 import { maskIp } from "../src/ip.js";
 

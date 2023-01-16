@@ -1,4 +1,4 @@
-import { expect } from "chai";
+import { expect } from "@esm-bundle/chai";
 import { IpNet } from "../src/ipnet.js";
 
 describe("ipnet", function () {
