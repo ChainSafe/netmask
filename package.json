@@ -12,7 +12,7 @@
     "test": "yarn run test:node",
     "test:node": "cross-env NODE_OPTIONS=\"--loader ts-node/esm\" mocha --extension ts test/**/*.spec.ts",
     "test:chrome": "web-test-runner test/**/*.spec.ts --node-resolve --playwright",
-    "test:firefox": "yarn run test:browser --browsers firefox"
+    "test:firefox": "web-test-runner test/**/*.spec.ts --node-resolve --playwright --browsers firefox"
   },
   "dependencies": {
     "@chainsafe/is-ip": "^2.0.1"
