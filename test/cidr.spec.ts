@@ -1,6 +1,7 @@
+import { parseIPv4, parseIPv6 } from "@chainsafe/is-ip/parse";
 import { expect } from "chai";
-import { cidrMask, Mask, parseCidr } from "../src/cidr.js";
-import { IPv4, IPv6, parseIPv4, maskIp, parseIPv6 } from "../src/ip.js";
+import { cidrMask, parseCidr } from "../src/cidr.js";
+import { maskIp } from "../src/ip.js";
 
 describe("cidr", function () {
   describe("parseCIDR", function () {
@@ -52,7 +53,7 @@ describe("cidr", function () {
 
     valid.forEach(([ones, bits, result]) => {
       it(`valid case ones=${String(ones)}, bits=${String(bits)}`, function () {
-        expect(cidrMask(ones, bits)).to.be.deep.equal(result);
+        expect(Array.from(cidrMask(ones, bits))).to.be.deep.equal(result);
       });
     });
 
@@ -73,22 +74,26 @@ describe("cidr", function () {
   });
 
   describe("maskIP", function () {
-    const testCases: [IPv4 | IPv6, Mask, IPv4 | IPv6][] = [
+    const testCases: [Uint8Array, Uint8Array, Uint8Array][] = [
       [
-        [192, 168, 1, 127],
-        [255, 255, 255, 128],
-        [192, 168, 1, 0],
+        new Uint8Array([192, 168, 1, 127]),
+        new Uint8Array([255, 255, 255, 128]),
+        new Uint8Array([192, 168, 1, 0]),
       ],
-      [[192, 168, 1, 127], parseIPv4("255.255.255.192")!, [192, 168, 1, 64]],
       [
-        [192, 168, 1, 127],
+        new Uint8Array([192, 168, 1, 127]),
+        parseIPv4("255.255.255.192")!,
+        new Uint8Array([192, 168, 1, 64]),
+      ],
+      [
+        new Uint8Array([192, 168, 1, 127]),
         parseIPv6("ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffe0")!,
-        [192, 168, 1, 96],
+        new Uint8Array([192, 168, 1, 96]),
       ],
       [
-        [192, 168, 1, 127],
-        [255, 0, 255, 0],
-        [192, 0, 1, 0],
+        new Uint8Array([192, 168, 1, 127]),
+        new Uint8Array([255, 0, 255, 0]),
+        new Uint8Array([192, 0, 1, 0]),
       ],
       [
         parseIPv6("2001:db8::1")!,

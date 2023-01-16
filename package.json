@@ -1,7 +1,7 @@
 {
   "name": "@chainsafe/netmask",
   "version": "1.0.0",
-  "description": "Zero dependency typescript implementation for using netmasks with both ipv4 and ipv6",
+  "description": "Typescript implementation of netmask filtering",
   "main": "dist/src/index.js",
   "type": "module",
   "author": "marin@chainsafe.io",
@@ -11,7 +11,9 @@
     "build": "tsc",
     "test": "cross-env NODE_OPTIONS=\"--loader ts-node/esm\" mocha --extension ts test/**/*.spec.ts"
   },
-  "dependencies": {},
+  "dependencies": {
+    "@chainsafe/is-ip": "^2.0.1"
+  },
   "devDependencies": {
     "@chainsafe/eslint-config": "^1.1.0",
     "@rushstack/eslint-patch": "^1.2.0",
