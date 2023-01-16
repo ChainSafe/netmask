@@ -1,13 +1,12 @@
 
 # @chainsafe/netmask
 
-Zero dependency typescript implementation for using netmasks with both ipv4 and ipv6.
+Typescript implementation for using CIDR masks for address filtering.
 Heavily inspired by go implementation.
 
 ## Features
 
 * IPv4 and IPv6 support
-* Zero dependencies
 * [Typescript](https://www.typescriptlang.org/) support
 
 ## How to use
@@ -20,11 +19,12 @@ or
 Example usage:
 
 ```typescript
-import {cidrContains, networkMaskContains} from "@chainsafe/netmask"
+import {IpNet} from "@chainsafe/netmask"
 
-cidrContains("192.168.0.1/24", "192.168.0.16")
-cidrContains("2001:db8::/128", "2001:db8::")
-networkMaskContains("192.168.0.1", "255.255.255.0", "192.168.0.16")
+new IpNet("192.168.0.1/24").contains("192.168.0.16")
+new IpNet("192.168.0.1", "24").contains("192.168.0.16")
+new IpNet("2001:db8::/128").contains("2001:db8::")
+new IpNet("192.168.0.1", "255.255.255.0").contains("192.168.0.16")
 ```
 
 ## Quick start
