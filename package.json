@@ -6,6 +6,14 @@
   "type": "module",
   "author": "marin@chainsafe.io",
   "license": "MIT",
+  "homepage": "https://github.com/ChainSafe/netmask#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ChainSafe/netmask.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ChainSafe/netmask/issues"
+  },
   "scripts": {
     "lint": "eslint src/ test/",
     "build": "tsc",
